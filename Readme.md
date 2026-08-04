@@ -2,15 +2,15 @@
 
 **Answer:**
 
-Hi, I'm **Md Hasanuzzaman Shohag**, a **Junior Full Stack Developer** with hands-on experience building modern, and user-friendly web applications. I specialize in **Next.js** and **Express.js**.
+Hi, I'm **Md Hasanuzzaman Shohag**, a **Junior Full Stack Developer** specializing in **Next.js** and **Express.js**. I enjoy building modern, scalable, and user-friendly web applications.
 
-I'm currently working as a **Freelance Full-Stack Developer**, collaborating with clients through local marketplaces. I've developed portfolio websites for several Bangladeshi singers, actors, and professionals, helping them establish a strong online presence.
+I'm currently working as a **Freelance Full Stack Developer**, where I've built portfolio websites for several Bangladeshi singers, actors, and professionals.
 
-I've also built several full stack applications, including a **single-vendor e-commerce platform** with secure authentication, product management, shopping cart, order processing and **AamarPay payment gateway integration**.
+I've also developed several full stack applications, including a **single-vendor e-commerce platform** with secure authentication, product management, shopping cart, order processing, and **AamarPay payment gateway integration**.
 
-Currently, I'm building my own SaaS product called **DotMeet**—an AI-powered appointment booking platform designed for doctors, teachers, freelancers, lawyers, tutors, dentists, and other service providers. It enables businesses to manage appointments efficiently and includes an AI assistant that answers customer questions using each business's information, making booking and customer support faster and smarter.
+Currently, I'm building my own SaaS product, **DotMeet**—an AI-powered appointment booking platform that helps service providers manage appointments and automate customer support with AI.
 
-I enjoy solving real-world problems through software development and continuously improving my technical skills by learning new technologies and best practices. I'm passionate about writing clean, maintainable, and scalable code, and I'm excited to contribute to a collaborative team, take on new challenges, and grow as a **Full Stack Developer** while delivering high-quality software solutions.
+I'm passionate about solving real-world problems, continuously learning new technologies, and writing clean, maintainable, and scalable code. I'm excited to contribute to a team, take on new challenges, and grow as a **Full-Stack Developer**.
 
 ## 2. Tell me about your weakness?
 
@@ -22,18 +22,18 @@ One of my weaknesses is that I don't have professional team experience yet, sinc
 
 **Answer:**
 
-I believe you should hire me because I have a strong foundation in full-stack web development and a genuine passion for learning. Although I don't have professional industry experience yet, I've gained practical experience by building real-world projects and working with freelance clients.
+I believe you should hire me because I have a strong foundation in full-stack web development and hands-on experience building real-world projects. Although I don't have professional industry experience yet, I've worked with freelance clients and developed full-stack applications using **Next.js and Express.js**.
 
-I've developed full-stack applications using **Next.js, Express.js, TypeScript, and MongoDB**, including a **single-vendor e-commerce platform** with secure authentication, product management, order processing, and **AamarPay payment gateway integration**. I'm also building my own SaaS product, **DotMeet**, which has strengthened my problem-solving and development skills.
-
-I'm a quick learner, enjoy taking on new challenges, and always strive to write clean, maintainable, and scalable code. If given the opportunity, I'll be dedicated to learning from the team, contributing to real projects, and adding value to the company from day one.
+I'm a quick learner, enjoy solving problems, and always strive to write clean, maintainable, and scalable code. If given the opportunity, I'll be dedicated to learning, contributing to real projects, and adding value to your team from day one.
 
 ## 4. What is your strength?
 
 **Answer:**
 
-My biggest strengths are my **problem-solving ability**, **continuous learning mindset**, and **adaptability**. I enjoy taking on challenging problems and finding practical solutions through research, experimentation, and hands-on development.
+My biggest strengths are **problem-solving**, **continuous learning**, and **adaptability**. I'm a quick learner who enjoys building real-world projects and exploring new technologies. I write clean, maintainable, and scalable code, and I'm confident working with **Next.js, Express.js, TypeScript, and MongoDB**. I'm always eager to learn, take on new challenges, and continuously improve as a developer.
 
-I'm also a quick learner and always eager to improve my skills by building real-world projects and exploring new technologies. This has helped me become confident working with **Next.js, Express.js, TypeScript, and MongoDB**.
+## 5. Why did you choose web development as a career?
 
-Another strength is that I write clean, maintainable, and scalable code while paying attention to performance and user experience. I take ownership of my work, stay committed to completing tasks, and always look for opportunities to learn and grow as a developer.
+**Answer:**
+
+I chose web development because I enjoy solving real-world problems and building applications that people can use every day. I like creating modern, user-friendly web applications and continuously learning new technologies. Building real-world projects and working with freelance clients has strengthened my passion for software development. My goal is to grow as a Full Stack Developer and build products that create real value.
