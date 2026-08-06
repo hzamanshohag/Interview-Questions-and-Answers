@@ -1,10 +1,22 @@
 # 📚 01 — JavaScript Fundamentals
 
-## Topics Covered
-- Variables
-- Data Types
+## 📖 Topics Covered
+
+- Variables (`var`, `let`, `const`)
+- Primitive Data Types
 - Functions
-- Scope
+- Scope & Scope Chain
+- Hoisting
+- Closures
+- `null` vs `undefined`
+- Arrow Functions
+- Temporal Dead Zone (TDZ)
+- Pure Functions
+- Function Declaration vs Function Expression
+- Default Parameters
+- `typeof` Operator
+- Type Coercion
+- Immediately Invoked Function Expressions (IIFE)
 
 ---
 
