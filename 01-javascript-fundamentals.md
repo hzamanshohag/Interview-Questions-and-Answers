@@ -1,4 +1,4 @@
-# 📚 Day 1 — JavaScript Fundamentals I
+# 📚 01 — JavaScript Fundamentals
 
 ## Topics Covered
 - Variables
