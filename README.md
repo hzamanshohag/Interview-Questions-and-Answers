@@ -32,8 +32,8 @@ Interview-Questions-and-Answers/
 │
 ├── 00-about-me.md
 ├── 01-javascript-fundamentals.md
-├── 02-
-├── 03-
+├── 02-javascript-arrays-and-objects.md
+├── 03-javascript-asynchronous.md
 ├── 04-typescript-fundamentals.md
 ├── 05-react-fundamentals.md
 ├── 06-nextjs-interview.md
