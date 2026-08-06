@@ -364,17 +364,290 @@ Arrow Function IIFE:
 
 ---
 
-# 🎯 Day 1 Complete
+## Q16. What is the difference between global scope, function scope, and block scope?
 
-**Topics Learned**
+**Answer:**
 
-- Variables
-- Data Types
-- Scope
-- Hoisting
-- Closures
-- Functions
-- Pure Functions
-- Type Coercion
-- IIFE
-- Arrow Functions
+JavaScript has three main types of scope:
+
+- **Global Scope:** Variables are accessible from anywhere.
+- **Function Scope:** Variables declared with `var` inside a function are only accessible within that function.
+- **Block Scope:** Variables declared with `let` and `const` inside `{}` are only accessible within that block.
+
+**Example:**
+
+```javascript
+const globalVar = "Global";
+
+function demo() {
+  var functionVar = "Function";
+
+  if (true) {
+    let blockVar = "Block";
+    console.log(blockVar);
+  }
+
+  console.log(functionVar);
+}
+
+demo();
+```
+
+---
+
+## Q17. What is the difference between mutable and immutable data?
+
+**Answer:**
+
+- **Mutable:** Can be changed after creation.
+- **Immutable:** Cannot be changed after creation.
+
+| Mutable | Immutable |
+|---------|-----------|
+| Objects | Strings |
+| Arrays | Numbers |
+| Functions | Booleans |
+
+**Example:**
+
+```javascript
+const arr = [1, 2];
+arr.push(3); // Mutable
+
+const str = "Hello";
+str[0] = "h"; // No effect
+```
+
+---
+
+## Q18. What is the difference between pass by value and pass by reference?
+
+**Answer:**
+
+- Primitive values are passed **by value**.
+- Objects and arrays are passed **by reference**.
+
+**Example:**
+
+```javascript
+let a = 10;
+let b = a;
+
+b = 20;
+
+console.log(a); // 10
+
+const user = {
+  name: "John"
+};
+
+const copy = user;
+
+copy.name = "Shohag";
+
+console.log(user.name); // Shohag
+```
+
+---
+
+## Q19. What are truthy and falsy values in JavaScript?
+
+**Answer:**
+
+### Falsy Values
+
+- false
+- 0
+- -0
+- ""
+- null
+- undefined
+- NaN
+
+Everything else is **truthy**.
+
+**Example:**
+
+```javascript
+if ("Hello") {
+  console.log("Truthy");
+}
+
+if (0) {
+  console.log("Won't execute");
+}
+```
+
+---
+
+## Q20. What is the difference between `undefined`, `null`, and `NaN`?
+
+**Answer:**
+
+| Value | Meaning |
+|--------|---------|
+| undefined | Variable declared but not assigned |
+| null | Intentionally empty value |
+| NaN | Invalid numeric result |
+
+**Example:**
+
+```javascript
+let a;
+
+console.log(a);
+
+let b = null;
+
+console.log(b);
+
+console.log(Number("Hello"));
+```
+
+---
+
+## Q21. What is the difference between `call()`, `apply()`, and `bind()`?
+
+**Answer:**
+
+These methods control the value of `this`.
+
+| Method | Executes Immediately | Arguments |
+|---------|----------------------|-----------|
+| call() | ✅ | Comma separated |
+| apply() | ✅ | Array |
+| bind() | ❌ | Returns new function |
+
+**Example:**
+
+```javascript
+const person = {
+  name: "Shohag"
+};
+
+function greet(city) {
+  console.log(`${this.name} from ${city}`);
+}
+
+greet.call(person, "Dhaka");
+greet.apply(person, ["Khulna"]);
+
+const fn = greet.bind(person);
+
+fn("Jessore");
+```
+
+---
+
+## Q22. What is the difference between `map()`, `filter()`, and `forEach()`?
+
+**Answer:**
+
+| Method | Returns New Array | Purpose |
+|---------|------------------|---------|
+| map() | ✅ | Transform data |
+| filter() | ✅ | Filter data |
+| forEach() | ❌ | Iterate only |
+
+**Example:**
+
+```javascript
+const numbers = [1, 2, 3];
+
+numbers.map(num => num * 2);
+
+numbers.filter(num => num > 1);
+
+numbers.forEach(num => console.log(num));
+```
+
+---
+
+## Q23. What are template literals?
+
+**Answer:**
+
+Template literals use backticks (`` ` ``) and allow string interpolation.
+
+**Example:**
+
+```javascript
+const name = "Shohag";
+
+console.log(`Hello ${name}`);
+```
+
+---
+
+## Q24. What is destructuring in JavaScript?
+
+**Answer:**
+
+Destructuring allows extracting values from arrays or objects.
+
+**Example:**
+
+```javascript
+const user = {
+  name: "Shohag",
+  age: 24
+};
+
+const { name, age } = user;
+
+const numbers = [10, 20];
+
+const [a, b] = numbers;
+```
+
+---
+
+## Q25. What is the difference between the spread operator (`...`) and the rest operator (`...`)?
+
+**Answer:**
+
+Although both use `...`, they serve different purposes.
+
+### Spread Operator
+
+Expands an array or object.
+
+```javascript
+const arr1 = [1, 2];
+
+const arr2 = [...arr1, 3];
+```
+
+### Rest Operator
+
+Collects multiple values into one array.
+
+```javascript
+function sum(...numbers) {
+  return numbers.reduce((a, b) => a + b, 0);
+}
+
+sum(1, 2, 3, 4);
+```
+
+---
+
+# 💼 Common Interview Follow-up Questions
+
+These questions are frequently asked after JavaScript fundamentals:
+
+- Explain lexical scope.
+- What is the execution context?
+- What is the difference between compile time and runtime?
+- Why is JavaScript called a single-threaded language?
+- What is the event loop?
+- What are callback functions?
+- What is callback hell?
+- What are higher-order functions?
+- What is a first-class function?
+- Explain the `this` keyword with examples.
+- What are factory functions?
+- What are constructor functions?
+- What is object cloning?
+- What is optional chaining (`?.`)?
+- What is the nullish coalescing operator (`??`)?
