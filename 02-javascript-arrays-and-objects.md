@@ -819,7 +819,7 @@ Immutable updates create a **new** object/array instead of mutating the original
 
 ```javascript
 // Object - immutable update
-const user = { name: "Shohag", age: 24 };
+const user = { name: "Sk Shohag", age: 24 };
 const updatedUser = { ...user, age: 25 }; // new object, original untouched
 
 // Array - immutable update
