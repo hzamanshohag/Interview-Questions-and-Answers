@@ -913,3 +913,337 @@ greet.call(user);
 
 ---
 
+# Q27. What are JavaScript modules?
+
+### Answer:
+
+JavaScript modules allow us to split code into separate files and share functionality between them using `export` and `import`.
+
+Modules help with:
+
+* Code organization
+* Reusability
+* Maintainability
+* Avoiding global variables
+* Separating application logic
+
+### Named Export
+
+```javascript
+// math.js
+
+export const add = (a, b) => {
+  return a + b;
+};
+```
+
+Import it:
+
+```javascript
+// app.js
+
+import { add } from "./math.js";
+
+console.log(add(10, 20));
+```
+
+### Multiple Named Exports
+
+```javascript
+// math.js
+
+export const add = (a, b) => a + b;
+
+export const subtract = (a, b) => a - b;
+```
+
+```javascript
+import { add, subtract } from "./math.js";
+```
+
+### Default Export
+
+```javascript
+// user.js
+
+export default function getUser() {
+  return {
+    name: "Shohag",
+  };
+}
+```
+
+Import:
+
+```javascript
+import getUser from "./user.js";
+```
+
+### Renaming an Import
+
+```javascript
+import { add as sum } from "./math.js";
+
+console.log(sum(10, 20));
+```
+
+### Interview Tip
+
+> **Named exports** use `{ }`, while a **default export** can be imported with any name.
+
+---
+
+# Q28. What is the difference between shallow copy and deep copy?
+
+### Answer:
+
+A **shallow copy** copies only the top-level properties. Nested objects still share references.
+
+A **deep copy** creates independent copies of nested objects as well.
+
+### Shallow Copy
+
+```javascript
+const original = {
+  name: "Shohag",
+  address: {
+    city: "Khulna",
+  },
+};
+
+const copy = {
+  ...original,
+};
+
+copy.address.city = "Dhaka";
+
+console.log(original.address.city);
+// Dhaka
+```
+
+The nested `address` object is still shared.
+
+### Deep Copy
+
+Modern JavaScript provides `structuredClone()`:
+
+```javascript
+const original = {
+  name: "Shohag",
+  address: {
+    city: "Khulna",
+  },
+};
+
+const copy = structuredClone(original);
+
+copy.address.city = "Dhaka";
+
+console.log(original.address.city);
+// Khulna
+```
+
+### Comparison
+
+| Feature                    | Shallow Copy | Deep Copy              |
+| -------------------------- | ------------ | ---------------------- |
+| Top-level copied           | Yes          | Yes                    |
+| Nested objects independent | No           | Yes                    |
+| Example                    | `{ ...obj }` | `structuredClone(obj)` |
+| Nested references shared   | Yes          | No                     |
+
+### Interview Tip
+
+> Spread syntax and `Object.assign()` create **shallow copies**, not deep copies.
+
+---
+
+# Q29. What are `WeakMap` and `WeakSet`?
+
+### Answer:
+
+`WeakMap` and `WeakSet` are special collections that hold **weak references to objects**.
+
+They are useful when we want to associate data with objects without preventing those objects from being garbage-collected when they are no longer otherwise reachable.
+
+---
+
+## WeakMap
+
+A `WeakMap` stores key-value pairs where the keys must be objects.
+
+```javascript
+const weakMap = new WeakMap();
+
+const user = {
+  name: "Shohag",
+};
+
+weakMap.set(user, "User metadata");
+
+console.log(weakMap.get(user));
+// User metadata
+```
+
+### Important Characteristics
+
+* Keys must be objects.
+* Keys are weakly held.
+* Not directly iterable.
+* No `.size` property.
+* Useful for object-associated metadata.
+
+### Example
+
+```javascript
+const cache = new WeakMap();
+
+function processUser(user) {
+  if (cache.has(user)) {
+    return cache.get(user);
+  }
+
+  const result = {
+    processed: true,
+  };
+
+  cache.set(user, result);
+
+  return result;
+}
+```
+
+---
+
+## WeakSet
+
+A `WeakSet` stores objects only.
+
+```javascript
+const weakSet = new WeakSet();
+
+const user = {
+  name: "Shohag",
+};
+
+weakSet.add(user);
+
+console.log(weakSet.has(user));
+// true
+```
+
+### Comparison
+
+| Feature     | WeakMap               | WeakSet          |
+| ----------- | --------------------- | ---------------- |
+| Stores      | Key-value pairs       | Objects          |
+| Keys/values | Object keys           | Objects          |
+| Iterable    | No                    | No               |
+| `.size`     | No                    | No               |
+| Common use  | Object metadata/cache | Tracking objects |
+
+### Interview Tip
+
+> Use `WeakMap` when you need to associate extra data with objects, and `WeakSet` when you only need to track whether an object has been seen or registered.
+
+---
+
+# Q30. What is memoization in JavaScript?
+
+### Answer:
+
+**Memoization** is an optimization technique where the result of an expensive function is stored so that the same input can return the cached result instead of recalculating it.
+
+### Without Memoization
+
+```javascript
+function square(number) {
+  console.log("Calculating...");
+
+  return number * number;
+}
+
+console.log(square(5));
+console.log(square(5));
+```
+
+The calculation happens every time.
+
+### With Memoization
+
+```javascript
+function memoize(fn) {
+  const cache = new Map();
+
+  return function (value) {
+    if (cache.has(value)) {
+      return cache.get(value);
+    }
+
+    const result = fn(value);
+
+    cache.set(value, result);
+
+    return result;
+  };
+}
+
+function square(number) {
+  console.log("Calculating...");
+
+  return number * number;
+}
+
+const memoizedSquare = memoize(square);
+
+console.log(memoizedSquare(5));
+// Calculating...
+// 25
+
+console.log(memoizedSquare(5));
+// 25
+```
+
+The second call uses the cached result.
+
+### Another Example: Fibonacci
+
+Without memoization, recursive Fibonacci can perform many repeated calculations.
+
+```javascript
+function fibonacci(n, cache = {}) {
+  if (n <= 1) {
+    return n;
+  }
+
+  if (cache[n]) {
+    return cache[n];
+  }
+
+  cache[n] =
+    fibonacci(n - 1, cache) +
+    fibonacci(n - 2, cache);
+
+  return cache[n];
+}
+
+console.log(fibonacci(10));
+// 55
+```
+
+### Advantages
+
+* Improves performance.
+* Avoids repeated calculations.
+* Useful for expensive functions.
+* Can be useful for recursive algorithms.
+
+### Disadvantages
+
+* Uses additional memory.
+* Cache management can become complicated.
+* Not useful when inputs rarely repeat.
+
+### Interview Tip
+
+> Memoization trades **memory for speed** by caching previously calculated results.
