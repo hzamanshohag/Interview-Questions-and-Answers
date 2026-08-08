@@ -1,4 +1,4 @@
-# 📚 Day 2 — JavaScript Fundamentals II
+# 📚 Day 2 — JavaScript Fundamentals
 
 ### Topic: Arrays, Objects, ES6+ & Asynchronous JavaScript
 
