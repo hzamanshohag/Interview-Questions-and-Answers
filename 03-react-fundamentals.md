@@ -178,5 +178,130 @@ The empty dependency array means the effect runs after the initial render.
 
 ---
 
+## Q37. What is the difference between controlled and uncontrolled components?
+
+**Answer:**
+
+### Controlled Component
+
+In a controlled component, the form input value is controlled by **React state**.
+
+```jsx
+const [name, setName] = useState("");
+
+<input
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+/>
+```
+
+### Uncontrolled Component
+
+In an uncontrolled component, the input value is managed by the **DOM itself**, usually accessed using `useRef`.
+
+```jsx
+const inputRef = useRef();
+
+<input ref={inputRef} />
+```
+
+### Difference
+
+| Controlled            | Uncontrolled            |
+| --------------------- | ----------------------- |
+| Uses React state      | Uses DOM state          |
+| More control          | Less React code         |
+| Easier validation     | Useful for simple forms |
+| Common in React forms | Uses `useRef`           |
+
+---
+
+## Q38. What are props in React and how are they passed?
+
+**Answer:**
+
+Props, short for **properties**, are used to pass data from a parent component to a child component.
+
+Props are **read-only** and should not be modified by the child component.
+
+**Example:**
+
+```jsx
+function User({ name }) {
+  return <h2>Hello, {name}</h2>;
+}
+
+function App() {
+  return <User name="Shohag" />;
+}
+```
+
+Here, `name="Shohag"` is passed from `App` to `User` as a prop.
+
+---
+
+## Q39. What is prop drilling and how can it be avoided?
+
+**Answer:**
+
+**Prop drilling** happens when data needs to be passed through multiple components that do not actually need the data themselves.
+
+For example:
+
+```text
+App
+ ↓
+Parent
+ ↓
+Child
+ ↓
+GrandChild
+```
+
+If `App` needs to pass data to `GrandChild`, it may have to pass the data through `Parent` and `Child`.
+
+### How to avoid prop drilling:
+
+* Context API
+* `useContext`
+* Redux
+* Zustand
+* Other state-management libraries
+
+For smaller applications, **Context API** can be a simple solution.
+
+---
+
+## Q40. Explain the `useContext` Hook with an example.
+
+**Answer:**
+
+`useContext` allows a component to access data from a React Context without passing props manually through every component.
+
+**Example:**
+
+```jsx
+import { createContext, useContext } from "react";
+
+const UserContext = createContext();
+
+function User() {
+  const user = useContext(UserContext);
+
+  return <h2>{user.name}</h2>;
+}
+
+function App() {
+  return (
+    <UserContext.Provider value={{ name: "Shohag" }}>
+      <User />
+    </UserContext.Provider>
+  );
+}
+```
+
+Here, `User` directly accesses the user data using `useContext`.
+
+---
 
 
