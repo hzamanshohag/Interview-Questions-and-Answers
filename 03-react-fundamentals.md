@@ -476,4 +476,28 @@ Use `React.memo` when:
 
 ---
 
+# 💼 Common React Interview Follow-up Questions
 
+These questions are commonly asked after React fundamentals:
+
+* What is reconciliation in React?
+* What is the difference between re-rendering and DOM updating?
+* What is the difference between `useEffect` and `useLayoutEffect`?
+* What is the dependency array in `useEffect`?
+* What happens when the dependency array is empty?
+* Why should we not mutate React state directly?
+* What is state lifting?
+* What is component composition?
+* What is the difference between Context API and Redux?
+* When should you use `useMemo`?
+* When should you use `useCallback`?
+* What is the difference between `useRef` and `useState`?
+* Why should array indexes generally not be used as React keys?
+* What causes a React component to re-render?
+* What is reconciliation?
+* What are custom Hooks?
+* What are error boundaries?
+* What is lazy loading in React?
+* What is `React.lazy()`?
+* What is `Suspense`?
+* How can you optimize React application performance?
