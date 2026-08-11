@@ -304,4 +304,176 @@ Here, `User` directly accesses the user data using `useContext`.
 
 ---
 
+## Q41. What is the `useRef` Hook and when would you use it?
+
+**Answer:**
+
+`useRef` is a React Hook that allows us to store a value that persists between renders **without causing a re-render when the value changes**.
+
+It is commonly used for:
+
+* Accessing DOM elements
+* Focusing an input
+* Storing previous values
+* Keeping mutable values between renders
+* Working with timers
+
+**Example:**
+
+```jsx
+import { useRef } from "react";
+
+function Input() {
+  const inputRef = useRef(null);
+
+  const handleFocus = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <>
+      <input ref={inputRef} />
+
+      <button onClick={handleFocus}>
+        Focus Input
+      </button>
+    </>
+  );
+}
+```
+
+---
+
+## Q42. What are React Keys and why are they important in lists?
+
+**Answer:**
+
+Keys are unique values that help React identify which items in a list have changed, been added, or removed.
+
+**Example:**
+
+```jsx
+const users = [
+  { id: 1, name: "Shohag" },
+  { id: 2, name: "Hasan" }
+];
+
+users.map((user) => (
+  <div key={user.id}>
+    {user.name}
+  </div>
+));
+```
+
+Keys help React efficiently update lists.
+
+**Best practice:** Use a **stable and unique ID** as the key instead of the array index whenever possible.
+
+---
+
+## Q43. What is the difference between state and props?
+
+**Answer:**
+
+| State                           | Props                              |
+| ------------------------------- | ---------------------------------- |
+| Managed by the component        | Passed from parent                 |
+| Can be updated                  | Read-only                          |
+| Used for internal data          | Used to pass data                  |
+| Updating state causes re-render | Changing props can cause re-render |
+
+**Example:**
+
+```jsx
+function User({ name }) {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>{count}</p>
+    </div>
+  );
+}
+```
+
+Here:
+
+* `name` → prop
+* `count` → state
+
+---
+
+## Q44. How does conditional rendering work in React?
+
+**Answer:**
+
+Conditional rendering means displaying different UI based on a condition.
+
+React commonly uses:
+
+* `if...else`
+* Ternary operator
+* Logical `&&`
+* Logical `||`
+
+### Ternary Example
+
+```jsx
+function App({ isLoggedIn }) {
+  return (
+    <div>
+      {isLoggedIn ? (
+        <h1>Welcome!</h1>
+      ) : (
+        <h1>Please Login</h1>
+      )}
+    </div>
+  );
+}
+```
+
+### Logical AND Example
+
+```jsx
+{isLoggedIn && <button>Logout</button>}
+```
+
+If `isLoggedIn` is `true`, the button is rendered.
+
+---
+
+## Q45. What is `React.memo` and when should you use it?
+
+**Answer:**
+
+`React.memo` is a performance optimization that prevents a functional component from re-rendering when its props have not changed.
+
+**Example:**
+
+```jsx
+import React from "react";
+
+const User = React.memo(function User({ name }) {
+  console.log("User rendered");
+
+  return <h2>{name}</h2>;
+});
+```
+
+If the parent component re-renders but the `name` prop remains the same, React can skip re-rendering the `User` component.
+
+### When should you use it?
+
+Use `React.memo` when:
+
+* A component renders frequently.
+* Its rendering is relatively expensive.
+* Its props often remain unchanged.
+* Profiling shows unnecessary re-renders.
+
+**Important:** `React.memo` should not be used everywhere. It is a performance optimization, not a default requirement.
+
+---
+
 
