@@ -8,7 +8,7 @@ I enjoy building modern, scalable, and user-friendly web applications. Currently
 
 I’m passionate about solving real-world problems, learning new technologies, and writing clean, maintainable code.
 
-I’m excited to take on new challenges, contribute to a great team, and grow as a Full Stack Developer. Thank you!
+I’m excited to take on new challenges, contribute to a great team, and grow as a Full Stack Developer.
 
 ## 2. Tell me about your weakness?
 
