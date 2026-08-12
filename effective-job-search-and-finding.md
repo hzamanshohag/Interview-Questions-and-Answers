@@ -4,19 +4,19 @@ Professional handbook for junior & entry-level software engineers. Copy each sea
 
 ## Table of Contents
 
-1. [Facebook - Job Groups & Hiring Posts](#facebook)
-2. [X (Twitter) - Hiring Searches, Hashtags & Founders](#x-twitter)
-3. [LinkedIn - Jobs & People Search](#linkedin)
-4. [Reddit - Google Searches & Subreddits](#reddit)
-5. [Discord - Server Search](#discord)
-6. [Telegram - Channel Search](#telegram)
-7. [Threads, Bluesky, GitHub, Instagram](#threads-bluesky-github-instagram)
-8. [Universal Search - Google Search Every Platform](#universal-search)
-9. [Job Portal Listing](#job-portal-listing)
-10. [Effective Job Search via Search Engine - Cheat Sheet 2026](#search-engine-cheat-sheet-2026)
-11. [Startup ATS - Greenhouse, Lever, Ashby, Workable](#startup-ats)
-12. [Remote Jobs & Best Google Jobs Search](#remote-jobs--best-google-jobs-search)
-13. [Daily Job Hunting Routine (30-45 Min)](#daily-job-hunting-routine-30-45-minutes)
+1. Facebook - Job Groups & Hiring Posts
+2. X (Twitter) - Hiring Searches, Hashtags & Founders
+3. LinkedIn - Jobs & People Search
+4. Reddit - Google Searches & Subreddits
+5. Discord - Server Search
+6. Telegram - Channel Search
+7. Threads, Bluesky, GitHub, Instagram
+8. Universal Search - Google Search Every Platform
+9. Job Portal Listing
+10. Effective Job Search via Search Engine - Cheat Sheet 2026
+11. Startup ATS - Greenhouse, Lever, Ashby, Workable
+12. Remote Jobs & Best Google Jobs Search
+13. Daily Job Hunting Routine (30-45 Min)
 
 ---
 
