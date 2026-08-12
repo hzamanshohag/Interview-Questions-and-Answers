@@ -6,7 +6,7 @@ Hi, I’m **Md Hasanuzzaman Shohag**, a Full Stack Developer specializing in **N
 
 I enjoy building modern, scalable, and user-friendly web applications. Currently, I’m working as a **Freelance Full Stack Developer**, where I’ve developed portfolio websites for several **Bangladeshi singers, actors, and professionals**.
 
-I’m passionate about solving real-world problems, learning new technologies, and writing clean, maintainable code.
+I enjoy solving real-world problems, learning new technologies, and continuously improving my coding skills.
 
 I’m excited to take on new challenges, contribute to a team, and grow as a Full Stack Developer.
 
