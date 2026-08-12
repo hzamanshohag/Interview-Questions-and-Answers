@@ -2,15 +2,13 @@
 
 **Answer:**
 
-Hi, I'm **Md Hasanuzzaman Shohag**, a **Junior Full Stack Developer** specializing in **Next.js** and **Express.js**. I enjoy building modern, scalable, and user-friendly web applications.
+Hi, I’m **Md Hasanuzzaman Shohag**, a Full Stack Developer specializing in **Next.js and Express.js**.
 
-I'm currently working as a **Freelance Full Stack Developer**, where I've built portfolio websites for several Bangladeshi singers, actors, and professionals.
+I enjoy building modern, scalable, and user-friendly web applications. Currently, I’m working as a **Freelance Full Stack Developer**, where I’ve developed portfolio websites for several **Bangladeshi singers, actors, and professionals**.
 
-I've also developed several full stack applications, including a **single-vendor e-commerce platform** with secure authentication, product management, shopping cart, order processing, and **AamarPay payment gateway integration**.
+I’m passionate about solving real-world problems, learning new technologies, and writing clean, maintainable code.
 
-Currently, I'm building my own SaaS product, **DotMeet**—an AI-powered appointment booking platform that helps service providers manage appointments and automate customer support with AI.
-
-I'm passionate about solving real-world problems, continuously learning new technologies, and writing clean, maintainable, and scalable code. I'm excited to contribute to a team, take on new challenges, and grow as a **Full-Stack Developer**.
+I’m excited to take on new challenges, contribute to a great team, and grow as a Full Stack Developer. Thank you!
 
 ## 2. Tell me about your weakness?
 
