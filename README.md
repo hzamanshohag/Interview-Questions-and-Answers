@@ -32,7 +32,7 @@ Interview-Questions-and-Answers/
 │
 ├── 00-about-me.md
 ├── 01-javascript-fundamentals.md
-├── 02-javascript-arrays-and-objects.md
+├── 02-02-javascript-arrays-objects-es6-and-asynchronous.md
 ├── 03-javascript-asynchronous.md
 ├── 04-typescript-fundamentals.md
 ├── 05-react-fundamentals.md
