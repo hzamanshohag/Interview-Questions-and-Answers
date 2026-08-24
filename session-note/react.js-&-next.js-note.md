@@ -2,8 +2,6 @@
 
 A comprehensive collection of **React.js and Next.js interview questions, answers, concepts, and modern development topics**.
 
-This repository is designed to help developers prepare for **Frontend Developer, React Developer, Next.js Developer, and Full-Stack Developer interviews**.
-
 ---
 
 ## 📚 Topics Covered
