@@ -1180,3 +1180,281 @@ Principles:
 * Avoid deeply nested unrelated folders.
 * Define clear API and data boundaries.
 
+---
+
+# 31. How do we handle global error handling?
+
+Next.js provides route-level error boundaries.
+
+Example:
+
+```text
+app/
+├── error.tsx
+├── global-error.tsx
+└── not-found.tsx
+```
+
+## `error.tsx`
+
+Handles errors within a route segment.
+
+## `global-error.tsx`
+
+Handles errors at the root level.
+
+## `not-found.tsx`
+
+Handles missing resources or routes.
+
+Example:
+
+```jsx
+"use client";
+
+export default function Error({
+  error,
+  reset,
+}) {
+  return (
+    <div>
+      <h2>Something went wrong</h2>
+
+      <button onClick={() => reset()}>
+        Try again
+      </button>
+    </div>
+  );
+}
+```
+
+Also consider centralized:
+
+* API error handling
+* Logging
+* Monitoring
+* Error reporting
+
+---
+
+# 32. How do we implement caching in Next.js?
+
+Common strategies include:
+
+## Cached fetch
+
+```js
+fetch(url, {
+  next: {
+    revalidate: 60
+  }
+});
+```
+
+## No cache
+
+```js
+fetch(url, {
+  cache: "no-store"
+});
+```
+
+## Time-based revalidation
+
+```text
+Data is cached
+       ↓
+Revalidation time expires
+       ↓
+Next request triggers refresh behavior
+```
+
+## On-demand revalidation
+
+Useful after data mutations.
+
+Conceptually:
+
+```text
+Update Product
+      ↓
+Invalidate related cache
+      ↓
+New content becomes available
+```
+
+Choose caching based on how frequently data changes.
+
+---
+
+# 33. What are the issues with using a heavy Server Component?
+
+Server Components reduce client JavaScript, but they can still have performance problems.
+
+Possible issues:
+
+### Slow server rendering
+
+Heavy computation can increase response time.
+
+### Slow database queries
+
+A component may block rendering while waiting for data.
+
+### Large serialized data
+
+Passing large props to Client Components can increase payload size.
+
+### Waterfall requests
+
+Sequential data fetching can delay rendering.
+
+Example of sequential requests:
+
+```js
+const user = await getUser();
+const posts = await getPosts(user.id);
+```
+
+When possible, parallelize independent requests:
+
+```js
+const [users, products] = await Promise.all([
+  getUsers(),
+  getProducts(),
+]);
+```
+
+Use:
+
+* Streaming
+* Suspense
+* Caching
+* Parallel fetching
+* Pagination
+
+---
+
+# 34. How can we maintain a large number of pages in Next.js?
+
+Use:
+
+* Dynamic routes
+* Route groups
+* Shared layouts
+* Reusable templates
+* CMS-driven content
+* Metadata generation
+* Feature-based organization
+
+Instead of creating:
+
+```text
+/product-1
+/product-2
+/product-3
+/product-4
+```
+
+Use:
+
+```text
+products/
+└── [slug]/
+    └── page.tsx
+```
+
+Then:
+
+```text
+/products/iphone
+/products/macbook
+/products/samsung
+```
+
+can all use the same page template.
+
+For large content websites, connect routes to a CMS or database.
+
+---
+
+# 35. If we have a large dataset, how can we solve the issue?
+
+Never load everything at once if it is unnecessary.
+
+Use:
+
+## Pagination
+
+```text
+Page 1 → 20 items
+Page 2 → 20 items
+```
+
+## Infinite scrolling
+
+Load more data as the user scrolls.
+
+## Virtualization
+
+Only render items currently visible on screen.
+
+## Server-side filtering
+
+Instead of:
+
+```text
+Fetch 1,000,000 users
+        ↓
+Filter in browser
+```
+
+Do:
+
+```text
+Browser sends filters
+        ↓
+Server/database filters data
+        ↓
+Return only required results
+```
+
+## Database indexing
+
+Add indexes for frequently queried fields.
+
+## Caching
+
+Cache frequently requested data.
+
+## Data aggregation
+
+For charts and analytics, return summarized data instead of raw millions of records.
+
+---
+
+# Quick Interview Tips
+
+When answering React or Next.js interview questions:
+
+1. **Start with a short definition.**
+2. **Explain why it matters.**
+3. **Give a real-world use case.**
+4. **Show a small example if necessary.**
+5. **Mention trade-offs.**
+
+A strong interview answer usually follows this structure:
+
+```text
+What is it?
+    ↓
+How does it work?
+    ↓
+When would I use it?
+    ↓
+What are the trade-offs?
+```
+
+For example:
+
+> **ISR combines the performance benefits of static generation with the ability to update content over time. I would use it for pages like product catalogs or blogs where data changes periodically but doesn't require fresh SSR on every request.**
