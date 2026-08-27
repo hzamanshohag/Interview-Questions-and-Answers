@@ -497,3 +497,686 @@ const handleClick = useCallback(() => {
 
 Summary:
 
+```text
+useMemo     → Memoizes a value
+useCallback → Memoizes a function
+```
+
+Do not use them everywhere. Memoization also has a cost.
+
+---
+
+# 14. What happens when you fetch data directly inside a Server Component in Next.js?
+
+Example:
+
+```jsx
+export default async function Page() {
+  const response = await fetch("https://api.example.com/products");
+
+  const products = await response.json();
+
+  return <ProductList products={products} />;
+}
+```
+
+The fetch runs on the server.
+
+Benefits:
+
+* No client-side loading JavaScript required for that fetch.
+* Secrets can remain on the server.
+* Database or backend access can stay private.
+* Server rendering can include the fetched data.
+
+The client receives the rendered result and the required React payload.
+
+---
+
+# 15. How does Next.js cache server data?
+
+Next.js provides several caching mechanisms depending on the API and rendering setup.
+
+For `fetch`, you can control revalidation:
+
+```js
+fetch("https://api.example.com/data", {
+  next: {
+    revalidate: 60
+  }
+});
+```
+
+You can also opt out of persistent caching:
+
+```js
+fetch("https://api.example.com/data", {
+  cache: "no-store"
+});
+```
+
+Common caching concepts include:
+
+* Request memoization
+* Data caching
+* Full route caching
+* Router/client cache
+* Time-based revalidation
+* On-demand revalidation
+
+The exact behavior can depend on the Next.js version and rendering configuration.
+
+---
+
+# 16. How do you optimize a heavy chart in Next.js?
+
+Strategies:
+
+## Dynamically import the chart
+
+```jsx
+import dynamic from "next/dynamic";
+
+const Chart = dynamic(() => import("./Chart"), {
+  ssr: false,
+});
+```
+
+## Reduce data points
+
+Instead of rendering millions of points:
+
+* Aggregate data
+* Downsample data
+* Paginate
+* Load ranges dynamically
+
+## Memoize expensive calculations
+
+```jsx
+const chartData = useMemo(() => {
+  return processData(data);
+}, [data]);
+```
+
+## Move expensive calculations
+
+Process large datasets:
+
+* On the server
+* In a Web Worker
+* Before passing data to the chart
+
+## Virtualize related UI
+
+Avoid rendering unnecessary surrounding elements.
+
+---
+
+# 17. How do you optimize the same API call in Next.js?
+
+If multiple Server Components request the same data, you should avoid unnecessary duplicate work.
+
+Create a shared data function:
+
+```js
+export async function getUser(id) {
+  const response = await fetch(
+    `https://api.example.com/users/${id}`
+  );
+
+  return response.json();
+}
+```
+
+Then reuse it.
+
+For non-`fetch` data sources such as database calls, React's `cache()` can be useful:
+
+```js
+import { cache } from "react";
+
+export const getUser = cache(async (id) => {
+  return db.user.findUnique({
+    where: { id }
+  });
+});
+```
+
+Also use appropriate:
+
+* Data caching
+* Revalidation
+* Request memoization
+* Cache tags where appropriate
+
+---
+
+# 18. React lifecycle phases
+
+React lifecycle can be understood in three major phases:
+
+## Mounting
+
+The component is added to the UI.
+
+Functional equivalent:
+
+```jsx
+useEffect(() => {
+  console.log("Mounted");
+}, []);
+```
+
+## Updating
+
+The component re-renders because of:
+
+* State changes
+* Props changes
+* Context changes
+
+```jsx
+useEffect(() => {
+  console.log("Updated");
+}, [value]);
+```
+
+## Unmounting
+
+The component is removed.
+
+```jsx
+useEffect(() => {
+  return () => {
+    console.log("Cleanup");
+  };
+}, []);
+```
+
+For class components, common lifecycle methods include:
+
+* `componentDidMount`
+* `componentDidUpdate`
+* `componentWillUnmount`
+
+---
+
+# 19. How does nested routing work in Next.js?
+
+With the App Router:
+
+```text
+app/
+├── dashboard/
+│   ├── layout.js
+│   ├── page.js
+│   └── settings/
+│       └── page.js
+```
+
+Routes:
+
+```text
+/dashboard
+/dashboard/settings
+```
+
+The `layout.js` can wrap nested pages.
+
+Example:
+
+```jsx
+export default function DashboardLayout({ children }) {
+  return (
+    <>
+      <Sidebar />
+      {children}
+    </>
+  );
+}
+```
+
+Nested pages inherit layouts from parent route segments.
+
+---
+
+# 20. What are Server Components and Client Components?
+
+## Server Component
+
+Runs on the server.
+
+Benefits:
+
+* Can access server resources.
+* Can fetch data directly.
+* Can keep secrets on the server.
+* Does not automatically add its component code to the client bundle.
+
+Example:
+
+```jsx
+export default async function Page() {
+  const users = await getUsers();
+
+  return <UserList users={users} />;
+}
+```
+
+## Client Component
+
+Uses:
+
+```jsx
+"use client";
+```
+
+Required for:
+
+* `useState`
+* `useEffect`
+* Event handlers
+* Browser APIs
+
+Example:
+
+```jsx
+"use client";
+
+import { useState } from "react";
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      {count}
+    </button>
+  );
+}
+```
+
+Best practice: Keep Client Components as small as possible.
+
+---
+
+# 21. How does dynamic routing work in Next.js?
+
+Create a folder using square brackets:
+
+```text
+app/
+└── blog/
+    └── [slug]/
+        └── page.js
+```
+
+URL:
+
+```text
+/blog/react-hooks
+```
+
+The route parameter is:
+
+```text
+slug = "react-hooks"
+```
+
+Example:
+
+```jsx
+export default async function Page({ params }) {
+  const { slug } = await params;
+
+  return <h1>{slug}</h1>;
+}
+```
+
+You can also use:
+
+```text
+[...slug]      → Catch-all route
+[[...slug]]    → Optional catch-all route
+```
+
+---
+
+# 22. Tell me about Route Groups
+
+Route groups use parentheses:
+
+```text
+app/
+├── (marketing)/
+│   └── about/
+│       └── page.js
+│
+└── (dashboard)/
+    └── profile/
+        └── page.js
+```
+
+The group name does not appear in the URL.
+
+URLs:
+
+```text
+/about
+/profile
+```
+
+Route groups help organize:
+
+* Authentication routes
+* Marketing pages
+* Dashboard pages
+* Different layouts
+
+---
+
+# 23. How do we maintain a protected route?
+
+You can protect routes at different levels.
+
+## Middleware / Proxy
+
+Check authentication before allowing access to routes.
+
+## Server Component
+
+Verify the user on the server:
+
+```jsx
+export default async function Dashboard() {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
+  return <DashboardUI />;
+}
+```
+
+## Client-side protection
+
+Useful for UI behavior, but it should not be the only security layer.
+
+Important: Real authorization should be validated on the server.
+
+---
+
+# 24. Nested route is not working. How do you find and fix the issue?
+
+Check:
+
+### 1. Folder structure
+
+```text
+app/dashboard/settings/page.js
+```
+
+### 2. Missing `page.js`
+
+A route requires a `page.js`, `page.jsx`, `page.ts`, or `page.tsx`.
+
+### 3. Incorrect navigation
+
+```jsx
+<Link href="/dashboard/settings">
+  Settings
+</Link>
+```
+
+### 4. Route conflicts
+
+Check:
+
+* Dynamic routes
+* Catch-all routes
+* Route groups
+
+### 5. Layout issues
+
+Check whether the layout correctly renders:
+
+```jsx
+{children}
+```
+
+### 6. Middleware or Proxy
+
+Authentication logic may redirect the request.
+
+### 7. Check terminal and browser errors
+
+Use the Next.js error output to identify:
+
+* Import errors
+* Rendering errors
+* Route conflicts
+
+---
+
+# 25. How do we set client-side and server-side cookies?
+
+## Client-side cookies
+
+For non-sensitive cookies, browser-side libraries can be used.
+
+However, sensitive authentication tokens should generally not be accessible to client JavaScript.
+
+## Server-side cookies
+
+In the App Router, use the server-side cookies API:
+
+```js
+import { cookies } from "next/headers";
+
+const cookieStore = await cookies();
+
+const token = cookieStore.get("token");
+```
+
+For authentication, prefer secure cookies with appropriate flags such as:
+
+* `httpOnly`
+* `secure`
+* `sameSite`
+
+Avoid storing sensitive authentication tokens in places easily accessible to JavaScript when an `HttpOnly` cookie architecture is appropriate.
+
+---
+
+# 26. How do you securely handle form user input?
+
+Important steps:
+
+### Validate input
+
+Use schema validation:
+
+```js
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(8),
+});
+```
+
+### Sanitize when appropriate
+
+Protect against malicious input depending on how the data will be used.
+
+### Never trust client-side validation
+
+Always validate again on the server.
+
+### Prevent injection attacks
+
+Use:
+
+* Parameterized database queries
+* ORM protections
+* Proper escaping
+
+### Add authentication and authorization
+
+Verify that the user has permission to perform the action.
+
+### Protect sensitive actions
+
+Consider:
+
+* CSRF protections where relevant
+* Rate limiting
+* Secure cookies
+* Content Security Policy
+
+---
+
+# 27. How does the `useEffect` dependency array work internally?
+
+Conceptually, React stores information about the previous dependencies.
+
+Example:
+
+```jsx
+useEffect(() => {
+  fetchUser(userId);
+}, [userId]);
+```
+
+During a new render, React compares the current dependency values with the previous dependency values.
+
+Conceptually:
+
+```text
+Previous: [1]
+Current:  [2]
+
+Changed → Run cleanup → Run effect
+```
+
+React uses `Object.is()` semantics for dependency comparison.
+
+Important issue:
+
+```jsx
+useEffect(() => {
+  // ...
+}, [{}]);
+```
+
+A new object is created every render, so the dependency changes every time.
+
+---
+
+# 28. What is Middleware / `proxy.ts` in Next.js?
+
+In newer Next.js versions, `proxy.ts` is the convention replacing the older `middleware.ts` naming.
+
+It can run before requests reach routes and can be used for:
+
+* Authentication checks
+* Redirects
+* Request rewriting
+* Header modification
+* Basic request filtering
+
+Example concept:
+
+```ts
+export function proxy(request: Request) {
+  // Check request
+}
+```
+
+Use route matching carefully so unnecessary routes are not processed.
+
+For complex authentication and authorization, keep security logic maintainable and validate access close to sensitive server resources as well.
+
+---
+
+# 29. How do we handle authentication in Server Components?
+
+A Server Component can read the user's session or secure cookie on the server.
+
+Example flow:
+
+```text
+Request
+   ↓
+Read session/cookie
+   ↓
+Validate user
+   ↓
+Authorized? ── No → Redirect/Login
+   ↓ Yes
+Render protected data
+```
+
+Example:
+
+```jsx
+export default async function Dashboard() {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
+  return <h1>Welcome {user.name}</h1>;
+}
+```
+
+Authorization should also be checked when accessing sensitive data or performing mutations.
+
+---
+
+# 30. How do you structure a large-scale React/Next.js project?
+
+A good approach is feature-based organization.
+
+Example:
+
+```text
+src/
+├── app/
+│   ├── (marketing)/
+│   ├── (dashboard)/
+│   └── api/
+│
+├── components/
+│   ├── ui/
+│   └── shared/
+│
+├── features/
+│   ├── auth/
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   └── types/
+│   │
+│   └── products/
+│
+├── lib/
+│   ├── db/
+│   ├── auth/
+│   └── utils/
+│
+├── hooks/
+├── types/
+└── config/
+```
+
+Principles:
+
+* Group related code by feature.
+* Separate reusable UI from business logic.
+* Keep server-only code separate.
+* Use consistent naming.
+* Avoid deeply nested unrelated folders.
+* Define clear API and data boundaries.
+
