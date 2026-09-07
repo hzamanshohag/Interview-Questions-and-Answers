@@ -1,55 +1,70 @@
-🎯 Topic: MongoDB Fundamentals
-Q01. What is MongoDB and what are the its main features?
-Q02. How does MongoDB differ from relational databases?
-Q03. Can you describe the structure of data in MongoDB?
-Q04. What is Document in MongoDB?
-Q05. How is data stored in collection in MongoDB?
-Q06. Describe what a MongoDB database is.
-Q07. What is the default port on which MongoDB listens?
-Q08. How does MongoDB provide high availability and disaster recovery?
-Q09. What are the indexes in MongoDB, and why are they used?
-Q10. what is the role of the id field in MongoDB documents?
+🎯  Database Fundamentals
 
-🎯 Topic: CRUD Operations
-Q11. How do you create a new MongoDB collection?
-Q12. What is the syntax to insert a document into a MongoDB collection?
-Q13. Describe how to read data from a MongoDB collection.
-Q14. Explain how to update Documents in MongoDB.
-Q15. What are the MongoDB commands for deleting documents?
-Q16.  Can you join two collections in MongoDB? If so, how?
-Q17. How do you limit the number of documents returned by a MongoDB query?
-Q18. What is the difference between find() and findOne() in MongoDB?
-Q19. How can you achieve pagination in MongoDB?
-Q20. What are the differences between MongoDB’s insertOne and insertMany methods?
+Q01. What is a database and why is it necessary?
+Q02. What is a DBMS?
+Q03. What is the difference between DBMS and RDBMS?
+Q04. What are the different types of DBMS?
+Q05. What is a table in DBMS?
+Q06. What is data redundancy in a database?
+Q07. What is the difference between SQL and NoSQL databases?
+Q08. Why are NoSQL databases popular today?
+Q09. What are the different types of NoSQL databases?
 
-🎯 Indexing and Aggregation
+🎯  Data Modeling & Normalization
 
-Q21. Describe a compound index in MongoDB.
-Q22. What is the aggregation pipeline in MongoDB?
-Q23. How can you create an index in MongoDB and when should you do it?
-Q24. Explain how MongoDB's $match, $group and $sort operators work in an aggregation pipeline.
-Q25. What is the purpose of the explain() method?
+Q10. What is normalization in databases?
+Q11. What are the different normal forms?
+Q12. What is denormalization?
+Q13. What is the difference between ACID and BASE properties?
+Q14. What are the ACID properties in DBMS?
 
-🎯 Replication and Sharding
+🎯  Joins & Relationships
 
-Q26. Can you explain MongoDB's replication?
-Q27. Describe the purpose and components of a replica set.
-Q28. What is sharding in MongoDB and when would you use it?
-Q29. How does MongoDB perform automatic failover?
-Q30. Describe the difference between horizontal scaling and vertical scaling, and how MongoDB supports them.
+Q15. What is an Entity-Relationship Diagram (ERD)?
+Q16. What are the different types of SQL joins?
+Q17. What is the difference between a Primary Key, Foreign Key, and Unique Key?
+Q18. What is a schema in DBMS?
+Q19. What are constraints in DBMS?
 
-🎯 Performance and Optimization
+🎯  SQL Query & Optimization
 
-Q31. How does MongoDB handle large data volumes?
-Q32. What strategies can you use to diagnose and address performance issues in MongoDB?
-Q33. How do you ensure that indexes fit into RAM?
-Q34. Can you explain MongoDB's write concern?
-Q35. What is a covered query in MongoDB?
+Q20. What is a subquery in SQL?
+Q21. What is the difference between DELETE and TRUNCATE in SQL?
+Q22. What is an index and what are its types?
+Q23. What is the difference between a clustered and a non-clustered index?
+Q24. What are query optimization strategies?
+Q25. What is a transaction and what are its states in DBMS?
+Q26. What is a deadlock in DBMS?
+Q27. What is a database cursor?
+Q28. What is referential integrity?
+Q29. What are the phases of the DBMS query processing cycle?
+Q30. What are the different types of backups in DBMS?
+Q31. What is hash indexing?
 
-🎯 MongoDB Security
+🎯  MongoDB Fundamentals
 
-Q36. What are the security features available in MongoDB?
-Q37. How do you enable authentication in MongoDB?
-Q38. Describe role-based access control in MongoDB.
-Q39. Explain how to encrypt MongoDB data.
-Q40. Can you set up MongoDB to use TLS/SSL for connections?
+Q32. What is MongoDB?
+Q33. Why is MongoDB considered a NoSQL database?
+Q34. What is the importance of the _id field in MongoDB documents?
+Q35. What is the difference between embedding and referencing in MongoDB?
+Q36. What are the query and projection operators in MongoDB?
+Q37. What are the pagination techniques in MongoDB?
+Q38. How does indexing affect query performance in MongoDB?
+Q39. What are the MongoDB index types?
+Q40. How can you analyze query performance using explain("executionStats")?
+Q41. How can you optimize MongoDB for high read traffic?
+Q42. How does MongoDB handle security and access control?
+Q43. What are MongoDB transactions?
+Q44. What is the MongoDB Aggregation Framework?
+
+🎯  Mongoose ODM
+
+Q45. What is Mongoose?
+Q46. What are Mongoose schema types and options?
+Q47. How are relationships handled in Mongoose?
+Q48. What is populate() in Mongoose?
+Q49. When should you use embedding vs. referencing in Mongoose?
+Q50. What is Mongoose middleware (hooks)?
+Q51. What is the difference between pre-hooks and post-hooks?
+Q52. What are lean queries in Mongoose?
+Q53. What does .lean() do in Mongoose?
