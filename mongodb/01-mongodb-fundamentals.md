@@ -68,3 +68,34 @@ Q50. What is Mongoose middleware (hooks)?
 Q51. What is the difference between pre-hooks and post-hooks?
 Q52. What are lean queries in Mongoose?
 Q53. What does .lean() do in Mongoose?
+
+🎯  MySQL vs PostgreSQL
+
+Q54. What are the architectural differences between MySQL and PostgreSQL?
+Q55. What are the key differences between MySQL and PostgreSQL?
+Q56. How do MySQL and PostgreSQL handle transactions?
+
+🎯   Prisma ORM
+
+Q57. What is Prisma?
+Q58. What are the core components of Prisma?
+Q59. What is Prisma Schema (schema.prisma)?
+Q60. What is Prisma Client?
+Q61. What is Prisma Migrate?
+Q62. What is Prisma Studio?
+Q63. How are schema definitions and relationships created in Prisma?
+Q64. How does Prisma prevent SQL injection?
+Q65. What are Prisma performance best practices?
+Q66. What are the limitations of Prisma?
+
+🎯   Database Optimization & Scaling
+
+Q67. What are the different database scaling strategies?
+Q68. What is vertical scaling (scale-up)?
+Q69. What is horizontal scaling (scale-out)?
+Q70. How can database reads be scaled using read replicas?
+Q71. What are database sharding strategies?
+Q72. What is range-based sharding?
+Q73. What is hash-based sharding?
+Q74. What is directory-based sharding?
+
