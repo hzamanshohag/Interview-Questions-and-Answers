@@ -99,3 +99,34 @@ Q72. What is range-based sharding?
 Q73. What is hash-based sharding?
 Q74. What is directory-based sharding?
 
+🎯 Concurrency & Isolation Levels
+
+Q75. What are transaction isolation levels?
+Q76. What is Read Uncommitted?
+Q77. What is Read Committed?
+Q78. What is Repeatable Read?
+Q79. What is Serializable isolation?
+Q80. What are dirty reads, non-repeatable reads, and phantom reads?
+Q81. What is optimistic locking?
+Q82. What is pessimistic locking?
+Q83. What is the difference between optimistic and pessimistic locking?
+
+🎯 Distributed Systems & Data Architecture
+
+Q84. What is the CAP theorem?
+Q85. What are Consistency, Availability, and Partition Tolerance?
+Q86. What is the difference between CP and AP systems?
+Q87. What is the PACELC theorem?
+Q88. How does PACELC extend the CAP theorem?
+Q89. What happens when an asynchronous read replica lags behind the primary node?
+Q90. How can replication lag and read-your-own-writes consistency be handled?
+
+🎯 Deep-Dive Indexing Mechanics
+
+Q91. What is a B-Tree?
+Q92. What is an LSM-Tree?
+Q93. What is the difference between a B-Tree and an LSM-Tree?
+Q94. What is a covering index?
+Q95. What is an index-only scan?
+Q96. When can a query be satisfied entirely from an index without accessing the table/heap?
+
