@@ -155,22 +155,4 @@ The goal is not only to memorize answers but to **understand concepts and commun
 
 ---
 
-## 🤝 Contributions
 
-Contributions are welcome!
-
-If you'd like to improve existing answers, correct information, or add new interview questions, feel free to open a Pull Request.
-
----
-
-## ⭐ Support
-
-If you find this repository helpful, please consider giving it a ⭐ on GitHub.
-
-It helps others discover the project and motivates me to keep adding more interview questions and answers.
-
----
-
-## 🚀 Happy Learning & Good Luck with Your Interviews!
-
-**Keep learning. Keep building. Keep improving.**
